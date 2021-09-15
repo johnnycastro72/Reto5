@@ -1,0 +1,12 @@
+SELECT 'Consulta 1';
+SELECT titulo FROM contenidos ORDER BY titulo ASC;
+SELECT 'Consulta 2';
+SELECT contenidos.titulo, pelicula.pel_resumen, pelicula.pel_anio FROM pelicula JOIN contenidos ON pelicula.pel_con_id = contenidos.con_id WHERE pelicula.pel_anio >= '2000' ORDER BY contenidos.titulo ASC; 
+SELECT 'Consulta 3';
+SELECT contenidos.titulo FROM pelicula JOIN contenidos ON pelicula.pel_con_id = contenidos.con_id JOIN director ON pelicula.pel_dir_id = director.dir_id WHERE director.dir_nombre = 'Vincent' AND director.dir_apellido = 'Ward'; 
+SELECT 'Consulta 4';
+SELECT contenidos.titulo FROM transmisiones JOIN contenidos ON transmisiones.tra_con_id = contenidos.con_id WHERE transmisiones.tra_usu_alias = "lucky" ORDER BY contenidos.titulo ASC;
+SELECT 'Consulta 5';
+SELECT usuarios.usu_alias, usuarios.usu_nombre, usuarios.usu_apellido FROM transmisiones JOIN usuarios ON transmisiones.tra_usu_alias = usuarios.usu_alias JOIN contenidos ON transmisiones.tra_con_id = contenidos.con_id WHERE contenidos.titulo = 'Interestelar' ORDER BY usuarios.usu_alias ASC; 
+SELECT 'Consulta 6';
+SELECT count(pelicula.pel_id) FROM pelicula WHERE pelicula.pel_anio >= '2000'; 
